@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootJwtApplication {
+public class AuthforgeTemplateApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootJwtApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(AuthforgeTemplateApplication.class, args);
+    }
 }
