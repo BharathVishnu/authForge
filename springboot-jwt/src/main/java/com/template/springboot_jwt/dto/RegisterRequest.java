@@ -2,20 +2,26 @@ package com.template.springboot_jwt.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class RegisterRequest {
 
-    @NotBlank
+    @NotBlank(message = "Name is required")
+    @Size(min = 2, max = 80, message = "Name must be between 2 and 80 characters")
     private String name;
 
-    @Email
-    @NotBlank
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email must be valid")
     private String email;
 
-    @Size(min = 6)
-    @NotBlank
+    @NotBlank(message = "Password is required")
+    @Size(min = 8, max = 72, message = "Password must be between 8 and 72 characters")
+    @Pattern(
+            regexp = "^(?=.*[A-Za-z])(?=.*\\d).+$",
+            message = "Password must contain at least one letter and one number"
+    )
     private String password;
 }
